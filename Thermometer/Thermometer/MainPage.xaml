@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Thermometer"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             x:Class="Thermometer.MainPage">
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0">
+        <local:CelsiusThermometer Orientation="Vertical"
+                                  HorizontalOptions="Center"
+                                  Minimum="-25"
+                                  Maximum="60"
+                                  Interval="10"
+                                  IsMirrored="True"
+                                  TickOffset="5"
+                                  ShowLine="False"
+                                  MinorTicksPerInterval="0">
+            <gauge:SfLinearGauge.MajorTickStyle>
+                <gauge:LinearTickStyle Stroke="#d6d6d6" />
+            </gauge:SfLinearGauge.MajorTickStyle>
+            <gauge:SfLinearGauge.BarPointers>
+                <gauge:BarPointer Value="60"
+                                  CornerStyle="EndCurve"
+                                  Fill="#d6d6d6"
+                                  PointerSize="13" />
+                <gauge:BarPointer Value="59.5"  
+                                  PointerSize="10"
+                                  CornerStyle="EndCurve"
+                                  Fill="White" />
+                <gauge:BarPointer Value="{Binding Source={x:Reference thermoMeterShape}, Path=Value}"
+                                  PointerSize="5"
+                                  CornerStyle="EndCurve"
+                                  Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}" />
+            </gauge:SfLinearGauge.BarPointers>
+            <gauge:SfLinearGauge.MarkerPointers>
+                <gauge:LinearShapePointer x:Name="thermoMeterShape"
+                                          Value="35"
+                                          Position="Inside"
+                                          ShapeType="Triangle"
+                                          IsInteractive="True"
+                                          OffsetX="5"
+                                          Fill="Darkblue"
+                                          ShapeWidth="10"
+                                          ShapeHeight="12" />
+                <gauge:LinearShapePointer Value="-20"
+                                          Position="Cross"
+                                          ShapeType="Circle"
+                                          Fill="White"
+                                          Stroke="#d6d6d6"
+                                          OffsetY="-1"
+                                          ShapeHeight="25"
+                                          ShapeWidth="25"
+                                          Alignment="End"
+                                          StrokeThickness="1.5" />
+                <gauge:LinearShapePointer Value="-20"
+                                          Position="Cross"
+                                          ShapeType="Circle"
+                                          Alignment="End"
+                                          Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}"
+                                          ShapeHeight="18"
+                                          ShapeWidth="18"
+                                          OffsetY="3" />
+                <gauge:LinearShapePointer Value="-20"
+                                          ShapeType="Rectangle"
+                                          Fill="White"
+                                          Position="Cross"
+                                          ShapeHeight="2"
+                                          ShapeWidth="11"
+                                          OffsetY="1" />
+                <gauge:LinearShapePointer Value="-20"
+                                          ShapeType="Rectangle"
+                                          Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}"
+                                          Position="Cross"
+                                          ShapeHeight="5"
+                                          ShapeWidth="5"
+                                          OffsetY="1" />
+                <gauge:LinearContentPointer Value="60"
+                                            Position="Inside"
+                                            OffsetX="19"
+                                            OffsetY="1">
+                    <gauge:LinearContentPointer.Content>
+                        <Label Text="°C" TextColor="Black" />
+                    </gauge:LinearContentPointer.Content>
+                </gauge:LinearContentPointer>
+            </gauge:SfLinearGauge.MarkerPointers>
+        </local:CelsiusThermometer>
+        <local:FahrenheitThermometer Orientation="Vertical"
+                                     HorizontalOptions="End"
+                                     ShowLine="False"
+                                     MinorTicksPerInterval="0"
+                                     Minimum="-25"
+                                     Maximum="60"
+                                     Interval="10" Margin="65,0,0,0">
+            <gauge:SfLinearGauge.MajorTickStyle>
+                <gauge:LinearTickStyle Stroke="#d6d6d6" />
+            </gauge:SfLinearGauge.MajorTickStyle>
+            <gauge:SfLinearGauge.MarkerPointers>
+                <gauge:LinearContentPointer Value="60"
+                                            OffsetX="10"
+                                            Position="Inside">
+                    <gauge:LinearContentPointer.Content>
+                        <Label Text="°F"
+                               TextColor="Black" />
+                    </gauge:LinearContentPointer.Content>
+                </gauge:LinearContentPointer>
+            </gauge:SfLinearGauge.MarkerPointers>
+        </local:FahrenheitThermometer>
+    </Grid>
+</ContentPage>
