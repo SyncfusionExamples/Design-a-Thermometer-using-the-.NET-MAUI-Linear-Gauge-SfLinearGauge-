@@ -1,7 +1,7 @@
 # Design a Thermometer using the .NET MAUI Linear Gauge (SfLinearGauge)
 This repository contains sample of how to design a thermometer using the [.NET MAUI Linear Gauge (SfLinearGauge)](https://help.syncfusion.com/maui/linear-gauge/getting-started).
 
-# Syncfusion controls
+## Syncfusion controls
 
 This project used the following Syncfusion control(s):
 * [SfLinearGauge](https://www.syncfusion.com/maui-controls/maui-linear-gauge)
