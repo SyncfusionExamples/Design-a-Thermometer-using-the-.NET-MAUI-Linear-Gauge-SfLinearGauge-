@@ -7,6 +7,7 @@
     <Grid VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0">
         <local:CelsiusThermometer Orientation="Vertical"
                                   HorizontalOptions="Center"
+                                  ZIndex="1"
                                   Minimum="-25"
                                   Maximum="60"
                                   Interval="10"
@@ -29,6 +30,7 @@
                 <gauge:BarPointer Value="{Binding Source={x:Reference thermoMeterShape}, Path=Value}"
                                   PointerSize="5"
                                   CornerStyle="EndCurve"
+                                  x:DataType="gauge:LinearShapePointer"
                                   Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}" />
             </gauge:SfLinearGauge.BarPointers>
             <gauge:SfLinearGauge.MarkerPointers>
@@ -55,6 +57,7 @@
                                           Position="Cross"
                                           ShapeType="Circle"
                                           Alignment="End"
+                                          x:DataType="gauge:LinearShapePointer"
                                           Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}"
                                           ShapeHeight="18"
                                           ShapeWidth="18"
@@ -68,6 +71,7 @@
                                           OffsetY="1" />
                 <gauge:LinearShapePointer Value="-20"
                                           ShapeType="Rectangle"
+                                          x:DataType="gauge:LinearShapePointer"
                                           Fill="{Binding Source={x:Reference thermoMeterShape}, Path=Fill}"
                                           Position="Cross"
                                           ShapeHeight="5"
@@ -86,6 +90,7 @@
         <local:FahrenheitThermometer Orientation="Vertical"
                                      HorizontalOptions="End"
                                      ShowLine="False"
+                                     ZIndex="0"
                                      MinorTicksPerInterval="0"
                                      Minimum="-25"
                                      Maximum="60"
